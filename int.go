@@ -131,3 +131,10 @@ func (i Int) Ptr() *int64 {
 func (i Int) IsZero() bool {
 	return !i.Valid
 }
+
+func (i Int) String() string {
+	if !i.Valid {
+		return ""
+	}
+	return strconv.FormatInt(i.Int64, 10)
+}

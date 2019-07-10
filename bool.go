@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+	"strconv"
 )
 
 // Bool is a nullable bool.
@@ -131,4 +132,12 @@ func (b Bool) Ptr() *bool {
 // A non-null Bool with a 0 value will not be considered zero.
 func (b Bool) IsZero() bool {
 	return !b.Valid
+}
+
+func (b Bool) String() string {
+	if !b.Valid {
+		return ""
+	}
+
+	return strconv.FormatBool(b.Bool)
 }

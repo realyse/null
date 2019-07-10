@@ -137,3 +137,11 @@ func (f Float) Ptr() *float64 {
 func (f Float) IsZero() bool {
 	return !f.Valid
 }
+
+func (f Float) String() string {
+	if !f.Valid {
+		return ""
+	}
+
+	return strconv.FormatFloat(f.Float64, 'f', -1, 64)
+}

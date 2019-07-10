@@ -147,3 +147,11 @@ func (t Time) Ptr() *time.Time {
 func (t Time) IsZero() bool {
 	return !t.Valid
 }
+
+func (t Time) String() string {
+	if !t.Valid {
+		return ""
+	}
+
+	return t.ValueOrZero().Format("2006-01-02")
+}
